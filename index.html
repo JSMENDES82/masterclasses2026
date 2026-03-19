@@ -5,59 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masterclasses 2026 - Salesianos Porto</title>
     <style>
-        /* Estilo para que o conteúdo ocupe todo o ecrã do telemóvel */
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            width: 100%; 
-            height: 100%; 
-            background-color: #330066; /* Roxo Salesianos */
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            overflow: hidden; 
-        }
-        #video-container, #image-container { 
-            width: 100%; 
-            height: 100%; 
-            display: none; 
-        }
-        iframe, img { 
-            width: 100%; 
-            height: 100%; 
-            border: none; 
-            object-fit: contain; 
-        }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #330066; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+        #video-container, #image-container { width: 100%; height: 100%; display: none; }
+        iframe, img { width: 100%; height: 100%; border: none; object-fit: contain; }
     </style>
 </head>
 <body>
-
     <div id="video-container" style="display: block;">
-        <iframe id="player" 
-                src="https://www.youtube.com/embed/aa_Fn-8dhHE?autoplay=1&controls=0&rel=0&enablejsapi=1&mute=1" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen>
-        </iframe>
+        <iframe id="player" src="https://www.youtube.com/embed/aa_Fn-8dhHE?autoplay=1&controls=0&rel=0&enablejsapi=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
-
     <div id="image-container">
-        <img src="COLA_AQUI_O_TEU_LINK_DIRETO_DO_IMGBB.jpg" alt="Cartaz Masterclasses">
+        <img src="https://i.ibb.co/L5YwN3p/1000085474.jpg" alt="Cartaz Masterclasses">
     </div>
-
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         var player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
-                events: {
-                    'onStateChange': function(event) {
-                        // Quando o vídeo termina (Estado 0)
-                        if (event.data == YT.PlayerState.ENDED) {
-                            document.getElementById('video-container').style.display = 'none';
-                            document.getElementById('image-container').style.display = 'block';
-                        }
+                events: { 'onStateChange': function(event) {
+                    if (event.data == YT.PlayerState.ENDED) {
+                        document.getElementById('video-container').style.display = 'none';
+                        document.getElementById('image-container').style.display = 'block';
                     }
-                }
+                }}
             });
         }
     </script>
